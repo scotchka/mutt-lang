@@ -6,7 +6,8 @@ class Code(object):
         self.globals = {}
 
 
-class CodeGenerator(object):
+class BaseGenerator(object):
+
     def __call__(self, tree):
         self.co = Code()
         self.visit(tree)
@@ -26,6 +27,9 @@ class CodeGenerator(object):
 
         visit_method = getattr(self, 'visit_' + node_type)
         visit_method(node)
+
+
+class CodeGenerator(BaseGenerator):
 
     def visit_add(self, node):
         left, right = node.children
