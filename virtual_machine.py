@@ -1,4 +1,4 @@
-class VM(object):
+class BaseVM(object):
     def __init__(self, co):
         self.co = co
         self.stack = []
@@ -11,6 +11,8 @@ class VM(object):
             run_op = getattr(self, '_' + op.lower())
             run_op(arg)
 
+
+class VM(BaseVM):
     def _push(self, arg):
         self.stack.append(arg)
 
