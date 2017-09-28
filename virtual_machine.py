@@ -37,7 +37,7 @@ class VM(BaseVM):
         self.stack.append(a / b)
 
     def _print(self, arg):
-        print self.stack.pop()
+        print(self.stack.pop())
 
     def _pop(self, arg):
         self.stack.pop()
